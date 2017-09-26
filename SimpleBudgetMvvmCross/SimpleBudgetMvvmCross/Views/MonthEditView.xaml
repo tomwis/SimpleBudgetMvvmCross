@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<d:MvxContentPage x:TypeArguments="viewModels:MonthEditViewModel" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="RootView"
+             x:Class="SimpleBudgetMvvmCross.Core.Views.MonthEditView"
+             xmlns:res="clr-namespace:SimpleBudgetMvvmCross.Core.Resources"
+             xmlns:viewModels="clr-namespace:SimpleBudgetMvvmCross.Core.ViewModels"
+             xmlns:d="clr-namespace:MvvmCross.Forms.Core;assembly=MvvmCross.Forms"
+             Title="{res:Localize MonthEditPageTitle}"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+              Padding="12">
+    <ListView IsGroupingEnabled="True" GroupDisplayBinding="{Binding Title}" ItemsSource="{Binding BudgetItems}" HasUnevenRows="True">
+        <ListView.Header>
+            <StackLayout>
+                <Label Text="{res:Localize Month}"/>
+                <Picker ItemsSource="{Binding Months}" SelectedItem="{Binding SelectedMonth}" ItemDisplayBinding="{Binding DisplayName}"/>
+                <Label Text="{res:Localize Year}"/>
+                <Picker ItemsSource="{Binding Years}" SelectedItem="{Binding MonthItem.Year}"/>
+                <Label Text="{res:Localize EarningsLastMonthLabel}"/>
+                <Entry Text="{Binding MonthItem.LastMonthEarnings, Mode=TwoWay}" Margin="0,0,12,0"/>
+            </StackLayout>
+        </ListView.Header>
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Margin="0,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Title}" VerticalTextAlignment="Center"/>
+
+                        <ffimageloadingsvg:SvgCachedImage Grid.Column="1" WidthRequest="24" HeightRequest="24" Source="resource://SimpleBudgetMvvmCross.Core.Resources.Svg.add.svg">
+                            <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.AddExpeseCmd, Source={x:Reference Name=RootView}}" CommandParameter="{Binding Type}"/>
+                            </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                        </ffimageloadingsvg:SvgCachedImage>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Margin="0,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Entry Text="{Binding Name, Mode=TwoWay}" Margin="0,0,12,0"/>
+                        <Entry Grid.Column="1" Text="{Binding Amount, Mode=TwoWay}" HorizontalTextAlignment="End" />
+
+                        <ffimageloadingsvg:SvgCachedImage Grid.Column="2" WidthRequest="24" HeightRequest="24" Source="resource://SimpleBudgetMvvmCross.Core.Resources.Svg.delete.svg">
+                            <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.DeleteExpeseCmd, Source={x:Reference Name=RootView}}" CommandParameter="{Binding}"/>
+                            </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                        </ffimageloadingsvg:SvgCachedImage>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Footer>
+            <StackLayout>
+                <Label Text="{res:Localize MoneyLeftLabel}" Margin="0,12,0,0"/>
+                <Label Text="{Binding MonthItem.MoneyLeft}" Margin="0,0,12,0"/>
+                <Button Text="{res:Localize SaveButtonLabel}" Command="{Binding SaveCmd}"/>
+            </StackLayout>
+        </ListView.Footer>
+    </ListView>
+</d:MvxContentPage>

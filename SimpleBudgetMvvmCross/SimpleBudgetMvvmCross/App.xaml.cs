@@ -1,19 +1,18 @@
-﻿using System;
+﻿using MvvmCross.Forms.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
 
-namespace SimpleBudgetMvvmCross
+namespace SimpleBudgetMvvmCross.Core
 {
-    public partial class App : Application
+    public partial class App : MvxFormsApplication
     {
         public App()
         {
             InitializeComponent();
-
-            MainPage = new SimpleBudgetMvvmCross.MainPage();
         }
 
         protected override void OnStart()

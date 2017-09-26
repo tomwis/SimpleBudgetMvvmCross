@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MvvmCross.Core.Views;
+using MvvmCross.Forms.Uwp.Presenters;
+using MvvmCross.Platform;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,16 +15,18 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Forms.Platform.UWP;
 
 namespace SimpleBudgetMvvmCross.UWP
 {
-    public sealed partial class MainPage
+    public sealed partial class MainPage : WindowsPage
     {
         public MainPage()
         {
             this.InitializeComponent();
-
-            LoadApplication(new SimpleBudgetMvvmCross.App());
+            
+            var formsPresenter = Mvx.Resolve<IMvxViewPresenter>() as MvxFormsUwpPagePresenter;
+            LoadApplication(formsPresenter.FormsApplication);
         }
     }
 }

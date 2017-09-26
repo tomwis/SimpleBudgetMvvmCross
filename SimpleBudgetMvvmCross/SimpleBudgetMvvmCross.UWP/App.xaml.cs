@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFImageLoading.Forms.WinUWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -71,10 +72,13 @@ namespace SimpleBudgetMvvmCross.UWP
 
             if (rootFrame.Content == null)
             {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                CachedImageRenderer.Init();
+
+                var setup = new Setup(rootFrame, e);
+                setup.Initialize();
+
+                var start = MvvmCross.Platform.Mvx.Resolve<MvvmCross.Core.ViewModels.IMvxAppStart>();
+                start.Start();
             }
             // Ensure the current window is active
             Window.Current.Activate();

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBudgetMvvmCross.Android", "SimpleBudgetMvvmCross\SimpleBudgetMvvmCross.Android\SimpleBudgetMvvmCross.Android.csproj", "{426A44C4-4032-42C0-BDB4-A04D353E779F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBudgetMvvmCross", "SimpleBudgetMvvmCross\SimpleBudgetMvvmCross\SimpleBudgetMvvmCross.csproj", "{E0E330B2-8809-4118-838E-BEE25CD652D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBudgetMvvmCross.Core", "SimpleBudgetMvvmCross\SimpleBudgetMvvmCross\SimpleBudgetMvvmCross.Core.csproj", "{E0E330B2-8809-4118-838E-BEE25CD652D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBudgetMvvmCross.UWP", "SimpleBudgetMvvmCross\SimpleBudgetMvvmCross.UWP\SimpleBudgetMvvmCross.UWP.csproj", "{2210A160-0770-4252-A8A7-37BC283D63EB}"
 EndProject
@@ -196,6 +196,8 @@ Global
 		{2210A160-0770-4252-A8A7-37BC283D63EB}.AppStore|x86.Build.0 = Release|x86
 		{2210A160-0770-4252-A8A7-37BC283D63EB}.AppStore|x86.Deploy.0 = Release|x86
 		{2210A160-0770-4252-A8A7-37BC283D63EB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2210A160-0770-4252-A8A7-37BC283D63EB}.Debug|Any CPU.Build.0 = Debug|x86
+		{2210A160-0770-4252-A8A7-37BC283D63EB}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{2210A160-0770-4252-A8A7-37BC283D63EB}.Debug|ARM.ActiveCfg = Debug|ARM
 		{2210A160-0770-4252-A8A7-37BC283D63EB}.Debug|ARM.Build.0 = Debug|ARM
 		{2210A160-0770-4252-A8A7-37BC283D63EB}.Debug|ARM.Deploy.0 = Debug|ARM
